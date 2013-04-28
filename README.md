@@ -4,8 +4,10 @@ one tool per file
 
 Any script that seems useful, but too small for its own repository lands here.  
 Mostly in this style:
+
     myTinyTool.py
     myTinyTool.md
+
 But without any warranty.
 
 ## WARNING ##
