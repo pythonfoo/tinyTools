@@ -1,42 +1,6 @@
 #!/usr/bin/env python3                                                           
 # -*- coding: utf-8 -*-                                                         
-""" 
-write a DokuWike Page with Pictureinfos 
-
-********************************************
-GPL License
-********************************************
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-    Dieses Programm ist Freie Software: Sie können es unter den Bedingungen
-    der GNU General Public License, wie von der Free Software Foundation,
-    Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
-    veröffentlichten Version, weiterverbreiten und/oder modifizieren.
-
-    Dieses Programm wird in der Hoffnung, dass es nützlich sein wird, aber
-    OHNE JEDE GEWÄHRLEISTUNG, bereitgestellt; sogar ohne die implizite
-    Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
-    Siehe die GNU General Public License für weitere Details.
-
-    Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
-    Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
-
-Author: Oerb
-e-mail: bjoern@oerb.de
-Date: 12.06.2013
-
-"""                                                                             
+""" write a DokuWike Page with Pictureinfos """                                                                                
                                                              
                                                                                 
 import os
@@ -50,8 +14,7 @@ class Pictodokuwiki(object):
         central = 084-koebenerstr-gruenewald:bilddokumentation:0084-2013-04-09-begehung:'
         picturepath = './' 
         """
-        if self.isdir(wikipath):
-            self.central = wikipath
+        self.central = wikipath
         if self.isdir(picturepath):
             self.dirlist = os.listdir(picturepath)
         self.picsize = '500'
@@ -119,7 +82,7 @@ class Pictodokuwiki(object):
                 print('', file=datei)
                 for element in fileinf[key]:
                     text = '| {{:' + self.central + element + '?' + self.picsize + '|}} |'
-                    text2 = ' | | '
+                    text2 = '| | '
                     print(text, file=datei)
                     print(text2, file=datei)
 
@@ -158,7 +121,7 @@ def main():
     PicHelper = Pictodokuwiki(wikipath, picturepath)
     if args.alldirectory:
         PicHelper.write_alldir_to_wikipicturelists()
-    elif args.directory != "Nothing-to-dir":
+    elif args.dirname != "Nothing-to-dir":
         # write one DokuWikipage to given parameters
         PicHelper.write_dir_to_wikipicturelist(dirname)
     else:
